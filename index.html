@@ -47,7 +47,7 @@ h1{font-size:clamp(28px,min(12vw,7vh),56px);font-weight:800;color:var(--gold);li
 <script>
 const c=document.getElementById('foil'),x=c.getContext('2d',{willReadFrequently:true}),card=document.getElementById('card');
 let W,H,D,down=false,lx,ly,n=0,done=false;
-function paint(){D=Math.min(devicePixelRatio||1,2);const r=c.getBoundingClientRect();W=c.width=r.width*D;H=c.height=r.height*D;
+function paint(){D=Math.min(devicePixelRatio||1,2);const r=c.getBoundingClientRect();c.width=Math.round(r.width*D);c.height=Math.round(r.height*D);W=c.width;H=c.height;
  const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#9a9aa2');g.addColorStop(.35,'#e4e4ea');g.addColorStop(.65,'#b3b3ba');g.addColorStop(1,'#d9d9df');x.fillStyle=g;x.fillRect(0,0,W,H);
  x.globalAlpha=.12;x.strokeStyle='#fff';x.lineWidth=2*D;for(let i=-H;i<W;i+=14*D){x.beginPath();x.moveTo(i,0);x.lineTo(i+H,H);x.stroke()}x.globalAlpha=1;
  x.fillStyle='#4a4a52';x.textAlign='center';x.font='800 '+(42*D)+'px Tajawal,sans-serif';x.fillText('اكشط هنا',W/2,H/2-10*D);
